@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :redirect_to_sign_in, only: [:create, :edit, :update, :new, :destroy]
   before_action :set_subs, only: [:new, :edit]
 
+  def show
+    @all_comments = @object.comments_by_parent_id
+  end
+
   def create
     new_object = self.class.model.new(required_params)
     new_object.author = current_user

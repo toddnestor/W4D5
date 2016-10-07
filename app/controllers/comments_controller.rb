@@ -9,6 +9,10 @@ class CommentsController < ApplicationController
     redirect_to post_url(new_object.post)
   end
 
+  def show
+    @all_comments = @object.comments_by_parent_id
+  end
+
   private
   def required_params
     params.require(:comment).permit(:content, :post_id, :parent_comment_id)

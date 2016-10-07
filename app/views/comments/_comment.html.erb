@@ -9,7 +9,5 @@
   <% end %>
 
   <br>
-  <% if comment.child_comments.length > 0 %>
-    <%= render "shared/comments", comments: comment.child_comments %>
-  <% end %>
+  <%= render "shared/comments", comments: @all_comments[comment.id] %>
 </li>
