@@ -1,0 +1,3 @@
+<%= render 'comments/comment', comment: @object %>
+
+<%= render 'shared/comment_form', post_id: @object.post_id, parent_comment_id: @object.id %>

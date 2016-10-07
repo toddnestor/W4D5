@@ -1,0 +1,13 @@
+<form  action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="comment[post_id]" value="<%= post_id %>" />
+  <% if parent_comment_id %>
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= parent_comment_id %>" />
+  <% end %>
+  <label>
+    Add your comment <br>
+    <textarea name="comment[content]" rows="8" cols="40"></textarea>
+  </label>
+  <br>
+  <button>Submit</button>
+</form>

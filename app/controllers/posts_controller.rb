@@ -26,11 +26,15 @@ class PostsController < ApplicationController
     new_post_url
   end
 
+  def edit_item_url(object)
+    edit_post_url(object)
+  end
+
   def item_url(object)
     post_url(object)
   end
 
   def required_params
-    params.require(:post).permit(:title, :url, :content, :sub_id)
+    params.require(:post).permit(:title, :url, :content, sub_ids: [])
   end
 end

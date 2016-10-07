@@ -17,8 +17,12 @@ class ApplicationController < ActionController::Base
   end
 
   def update
-    @object.update(required_params)
-    redirect_to item_url(@object)
+    if @object.update(required_params)
+      redirect_to item_url(@object)
+    else
+      flash[:errors] = @object.errors.full_messages
+      redirect_to edit_item_url(@object)
+    end
   end
 
   def set_object

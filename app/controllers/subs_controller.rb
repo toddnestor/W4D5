@@ -21,6 +21,10 @@ class SubsController < ApplicationController
     new_sub_url
   end
 
+  def edit_item_url(object)
+    edit_sub_url(object)
+  end
+
   def item_url(object)
     sub_url(object)
   end
