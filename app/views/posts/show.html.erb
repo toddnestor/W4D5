@@ -1,0 +1,6 @@
+<%= link_to @object.sub.title, sub_url(@object.sub) %>
+<h1><%= @object.title %> <small><%= @object.url %></small></h1>
+<h2>by <%= @object.author.username %></h2>
+<p>
+  <%= @object.content %>
+</p>

@@ -1,0 +1,31 @@
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <%= auth_token %>
+
+  <label>
+    Title
+    <input type="text" name="post[title]" value="<%= post.title %>" />
+  </label>
+  <br>
+  <label>
+    Url
+    <input type="text" name="post[url]" value="<%= post.url %>" />
+  </label>
+  <br>
+  <label>
+    Content
+    <br>
+    <textarea name="post[content]" rows="8" cols="40"><%= post.content %></textarea>
+  </label>
+  <br>
+  <label>
+    Sub
+    <select name="post[sub_id]">
+      <% @subs.each do |sub| %>
+        <option value="<%= sub.id %>"><%= sub.title %></option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+  <button>Submit</button>
+</form>

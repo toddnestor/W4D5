@@ -1,0 +1,11 @@
+<h1><%= @object.title %></h1>
+<h2>Moderator: <%= @object.moderator.username %> </h2>
+
+<p>
+  <%= @object.description %>
+</p>
+<ul>
+  <% @object.posts.each do |post| %>
+    <li><%= link_to post.title, post_url(post) %></li>
+  <% end %>
+</ul>
