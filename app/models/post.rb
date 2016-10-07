@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   has_many :subs, through: :post_subs
   has_many :comments
   belongs_to :author, class_name: :User
+  include Votable
 
   def comments_by_parent_id
     comments = Hash.new {Array.new}

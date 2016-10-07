@@ -13,6 +13,19 @@ class CommentsController < ApplicationController
     @all_comments = @object.comments_by_parent_id
   end
 
+
+  def upvote
+    comment = Comment.find(params[:comment_id])
+    comment.receive_vote(current_user, 1)
+    redirect_to post_url(comment.post_id)
+  end
+
+  def downvote
+    comment = Comment.find(params[:comment_id])
+    comment.receive_vote(current_user, -1)
+    redirect_to post_url(comment.post_id)
+  end
+
   private
   def required_params
     params.require(:comment).permit(:content, :post_id, :parent_comment_id)

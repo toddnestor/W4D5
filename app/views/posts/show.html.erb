@@ -2,6 +2,11 @@
   <%= link_to sub.title, sub_url(sub) %>
   <% end %>
 <h1><%= @object.title %> <small><%= @object.url %></small></h1>
+<div>
+  <%= link_to "upvote", post_upvote_url(@object), method: :post %><br>
+  <%= link_to "downvote", post_downvote_url(@object), method: :post %><br>
+  <%= @object.votes.sum(:value) %>
+</div>
 <h2>by <%= @object.author.username %></h2>
 <p>
   <%= @object.content %>
