@@ -12,6 +12,10 @@ class SubsController < ApplicationController
     end
   end
 
+  def set_object
+    @object = self.class.model.friendly.find(params[:id])
+  end
+
   private
   def index_url
     subs_url

@@ -30,6 +30,11 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_object
+    @object = self.class.model.friendly.find(params[:id])
+  end
+  
   def set_subs
     @subs = Sub.all
   end

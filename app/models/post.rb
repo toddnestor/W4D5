@@ -7,6 +7,9 @@ class Post < ActiveRecord::Base
   belongs_to :author, class_name: :User
   include Votable
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   def comments_by_parent_id
     comments = Hash.new {Array.new}
 
