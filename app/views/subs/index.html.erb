@@ -1,6 +1,7 @@
 <h1>Subs</h1>
+<%= paginate @objects %>
 <ul>
-  <% @objects.each do |sub| %>
+  <% @objects.order(:title).each do |sub| %>
     <li><%= link_to sub.title, sub %></li>
   <% end %>
 </ul>

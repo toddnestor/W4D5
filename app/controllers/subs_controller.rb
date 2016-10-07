@@ -1,6 +1,14 @@
 class SubsController < ApplicationController
   before_action :redirect_to_sign_in, only: [:create, :edit, :update, :new, :destroy]
 
+  def index
+    @objects = self.class.model.page(params[:page])
+  end
+
+  def show
+    @posts = @object.posts_by_vote.page(params[:page])
+  end
+
   def create
     new_object = self.class.model.new(required_params)
     new_object.moderator = current_user

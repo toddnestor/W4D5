@@ -5,6 +5,8 @@ class Sub < ActiveRecord::Base
   has_many :posts, through: :post_subs
   belongs_to :moderator, class_name: :User
 
+  paginates_per 50
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
