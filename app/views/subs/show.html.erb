@@ -5,7 +5,7 @@
   <%= @object.description %>
 </p>
 <ul>
-  <% @object.posts.each do |post| %>
-    <li><%= link_to post.title, post_url(post) %></li>
+  <% @object.posts_by_vote.each do |post| %>
+    <li><%= link_to post.title, post_url(post) %> - <%= post.votes.sum(:value) %></li>
   <% end %>
 </ul>
