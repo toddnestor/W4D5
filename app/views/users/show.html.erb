@@ -1,1 +1,14 @@
 <h1>Hi there <%= @user.username %>!</h1>
+
+<ul>
+  <% current_user.subscribed_subs.each do |sub| %>
+    <li>
+        <%= sub.title %>
+        <ul>
+          <% sub.posts.to_a.take(10).each do |post| %>
+          <li><%= link_to post.title, post %></li>
+          <% end %>
+        </ul>
+    </li>
+  <% end %>
+</ul>
