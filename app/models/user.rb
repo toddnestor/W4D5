@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :subscriptions, dependent: :destroy
   has_many :subscribed_subs, through: :subscriptions, source: :sub
+  has_many :subscribed_posts, through: :subscribed_subs, source: :posts
   has_many :moderated_subs, foreign_key: :moderator_id, class_name: :Sub
   has_many :authored_posts, foreign_key: :author_id, class_name: :Post
 
