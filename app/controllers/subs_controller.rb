@@ -3,6 +3,7 @@ class SubsController < ApplicationController
 
   def index
     @objects = self.class.model.page(params[:page])
+    @subscribed_sub_ids = current_user.subscribed_sub_ids
   end
 
   def show

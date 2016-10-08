@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :subscriptions, dependent: :destroy
+  has_many :subscribed_subs, through: :subscriptions, source: :sub
+  has_many :moderated_subs, foreign_key: :moderator_id, class_name: :Sub
+  has_many :authored_posts, foreign_key: :author_id, class_name: :Post
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

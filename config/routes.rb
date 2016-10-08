@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     post "upvote", to: "comments#upvote", as: "upvote"
     post "downvote", to: "comments#downvote", as: "downvote"
   end
+  post "subscribe/:sub_id", to: "users#subscribe", as: "subscribe"
+
+  root to: "subs#index"
 end

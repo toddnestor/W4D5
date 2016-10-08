@@ -2,6 +2,6 @@
 <%= paginate @objects %>
 <ul>
   <% @objects.order(:title).each do |sub| %>
-    <li><%= link_to sub.title, sub %></li>
+    <li><%= link_to sub.title, sub %> - <%= link_to("subscribe", subscribe_url(sub.id), method: :post) unless @subscribed_sub_ids.include?(sub.id) %></li>
   <% end %>
 </ul>
